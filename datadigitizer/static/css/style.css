@@ -17,6 +17,10 @@ div.image {
   float: left;
 }
 
+div.image img {
+  width: 100%;
+}
+
 div.gdoc {
   width: 45%;
   margin-left: 50%;

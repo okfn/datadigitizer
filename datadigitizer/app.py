@@ -26,11 +26,14 @@ def configure_app():
 
 @app.route("/")
 def home():
-    return render_template('index.html')
+    return render_template('index.html', task_id=1)
 
-@app.route('/transcribe/<id>')
+@app.route('/transcribe/<task_id>')
 def transcribe(task_id):
-    return render_template('transcribe.html')
+    key = 'tSZWuSYlRmdV7JpMI4E8oMQ'
+    db = OurDatabase(key)
+    task = db.get_task(task_id)[0]
+    return render_template('transcribe.html', task=task)
 
 
 class OurDatabase(object):
@@ -46,12 +49,16 @@ class OurDatabase(object):
         if not dbs:
             raise Exception('DB not found')
         self.db = dbs[0]
+        tables = self.db.GetTables(name='task')
+        self.task_table = tables[0]
     
     def all_tasks(self):
-        tables = self.db.GetTables(name='task')
-        table = tables[0]
-        records = table.GetRecords(1, 20)
+        records = self.task_table.GetRecords(1, 20)
         return records
+
+    def get_task(self, task_id):
+        rec = self.task_table.FindRecords('id==%s' % task_id)
+        return rec
 
 
 if __name__ == "__main__":

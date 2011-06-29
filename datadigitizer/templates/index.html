@@ -4,8 +4,8 @@
 {% block content %}
   <div>
     <h2>Welcome!</h2>
-    <p>Public Domain Works is an <a href="http://opendefinition.org/">open</a> registry of cultural works that are in the public domain.
-    </p>
-    <p>It also provides a web API for calculating public domain status of works.</p>
+    <h3>
+      <a href="{{url_for('transcribe', task_id=task_id)}}">Do a task</a>
+    </h3>
   </div>
 {% endblock %}
