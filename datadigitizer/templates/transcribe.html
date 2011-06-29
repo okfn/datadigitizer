@@ -2,11 +2,24 @@
 {% block title %}Transcribe{% endblock %}
 
 {% block content %}
-  <div class="image">
-    <img src="{{task.content['imageurl']}}" />
+  <div class="left-pane">
+    <div class="image">
+      <img src="{{task.content['imageurl']}}" />
+    </div>
   </div>
-  <div class="gdoc">
-    <iframe src="https://spreadsheets.google.com/spreadsheet/ccc?hl=en_GB&key={{task.content['spreadsheetid']}}#gid=0" style="width: 100%;" height="600"></iframe>
+
+  <div class="right-pane">
+    <div class="meta">
+      <form action="" method="post">
+        <label for="existsTable">Is there a table in this image?</label>
+        <input type="radio" name="existsTable" value="Yes"> Yes. <input type="radio" name="existsTable" value="No"> No.<br>
+        <label for="tableContinues">Does it continue on the next page?</label>
+        <input type="radio" name="tableContinues" value="Yes"> Yes. <input type="radio" name="tableContinues" value="No"> No.<br>
+      </form>
+    </div>
+
+    <div class="gdoc">
+      <iframe src="https://spreadsheets.google.com/spreadsheet/ccc?hl=en_GB&key={{task.content['spreadsheetid']}}#gid=0" style="width: 100%;" height="600"></iframe>
+    </div>
   </div>
-</div>
 {% endblock %}

@@ -12,7 +12,7 @@ header #site-title {
   font-size: 200%;
 }
 
-div.image {
+div.left-pane {
   width: 45%;
   float: left;
 }
@@ -21,8 +21,19 @@ div.image img {
   width: 100%;
 }
 
-div.gdoc {
+div.right-pane {
   width: 45%;
   margin-left: 50%;
+}
+
+div.meta {
+}
+
+div.gdoc {
+  display: none;
+}
+
+div.meta {
+  line-height: 1.5;
 }
 
