@@ -11,3 +11,9 @@ virtualenv)::
   pip install -r requirements
   pip install -e .
 
+Now you can run the app::
+
+  python datadigitizer/app.py
+
+Visit: http://localhost:5000/
+
