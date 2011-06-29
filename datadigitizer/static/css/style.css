@@ -1,0 +1,13 @@
+@import url(openspending.css);
+
+header #site-title {
+  margin-left: 0;
+}
+
+#content {
+  padding: 20px;
+}
+
+#content h2 {
+  font-size: 200%;
+}

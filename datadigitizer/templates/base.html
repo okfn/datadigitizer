@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% block head %}
+  <!-- Prevent the conditional comments from stalling page load -->
+  <!--[if IE]><![endif]-->
+
+  <title>{% block title %}{% endblock %} - Data Digitizer</title>
+
+  <script src=""></script>
+  <link rel="stylesheet" href="/static/css/reset.css" type="text/css" media="screen, projection" />
+  <link rel="stylesheet" href="/static/css/blueprint/screen.css" type="text/css" media="screen, projection" />
+  <link rel="stylesheet" href="/static/css/blueprint/print.css" type="text/css" media="print" />	
+  <!--[if lt IE 8]><link rel="stylesheet" href="/static//css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+  <link rel="stylesheet" href="/static/css/style.css">
+  {% endblock %}
+</head>
+<body>
+  <div id="wrap">
+    <div class="flash-banner-box">
+      <div class="flash-banner">
+      </div>
+    </div>
+    <div id="page" class="container">
+	    <header>	
+        {% block masthead %}
+        <nav>
+          <a href="#about">About</a>
+          <a href="#login">Login or register</a>
+          <a href="#settings" style="display: none;">My Profile</a>
+          <a href="#logout" style="display: none;">Logout</a>
+        </nav>
+        <h1 id="site-title">
+          <a href="#">Data Digitizer</a>
+        </h1>
+        <div id="slogan">
+          Help digitize stuff and make it open!
+        </div>
+        {% endblock %}
+      </header>
+  
+      <div id="main">
+        <div id="content">
+
+          {% block content %}{% endblock %}
+
+          <div class="clearfix"></div>
+        </div> <!-- /content -->
+      </div>
+    </div><!-- /page -->
+
+    <footer class="container">
+      {% block footer %}
+      <ul class="credits">
+        <li>&copy; 2011: <a href="http://okfn.org">The Open Knowledge Foundation</a></li>
+        <li><a href="http://opendefinition.org/okd/">
+          <img src="http://assets.okfn.org/images/ok_buttons/od_80x15_blue.png" alt="Open Data" />
+        </a></li>
+      </ul>
+      <ul>
+        <li><a href="http://lists.okfn.org/mailman/listinfo/okfn-dev">Mailing List</a></li>
+        <li><a href="http://okfn.org/privacy-policy/">Privacy</a></li>
+        <li><a href="http://okfn.org/contact/">Contact</a></li>
+      </ul>
+      {% endblock %}
+    </footer>
+  </div>
+</body>
+</html>
