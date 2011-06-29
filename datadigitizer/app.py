@@ -28,9 +28,30 @@ def configure_app():
 def home():
     return render_template('index.html')
 
-@app.route('/transcribe')
-def transcribe():
+@app.route('/transcribe/<id>')
+def transcribe(task_id):
     return render_template('transcribe.html')
+
+
+class OurDatabase(object):
+    def __init__(self, key):
+        import gdata.spreadsheet.text_db
+        username = app.config['GDOCS_USERNAME']
+        password = app.config['GDOCS_PASSWORD']
+        self.client = gdata.spreadsheet.text_db.DatabaseClient(
+                username=username,
+                password=password
+                )
+        dbs = self.client.GetDatabases(key)
+        if not dbs:
+            raise Exception('DB not found')
+        self.db = dbs[0]
+    
+    def all_tasks(self):
+        tables = self.db.GetTables(name='task')
+        table = tables[0]
+        records = table.GetRecords(1, 20)
+        return records
 
 
 if __name__ == "__main__":

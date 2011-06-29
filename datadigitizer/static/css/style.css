@@ -11,3 +11,14 @@ header #site-title {
 #content h2 {
   font-size: 200%;
 }
+
+div.image {
+  width: 45%;
+  float: left;
+}
+
+div.gdoc {
+  width: 45%;
+  margin-left: 50%;
+}
+

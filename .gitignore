@@ -1,1 +1,3 @@
 *.egg-info
+app.cfg
+*.pyc
