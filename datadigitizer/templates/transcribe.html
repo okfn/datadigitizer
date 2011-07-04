@@ -2,10 +2,31 @@
 {% block title %}Transcribe{% endblock %}
 
 {% block content %}
+ <script type="text/javascript">
+      var $ = jQuery;
+      $(document).ready(function(){
+            $("#viewer").iviewer(
+                 {
+                 src: "{{task.content['imageurl']}}", 
+                 update_on_resize: false,
+                 initCallback: function ()
+                 {
+                     var object = this;
+                     $("#in").click(function(){ object.zoom_by(1);}); 
+                     $("#out").click(function(){ object.zoom_by(-1);}); 
+                     $("#fit").click(function(){ object.fit();}); 
+                     $("#orig").click(function(){  object.set_zoom(100); }); 
+                     $("#update").click(function(){ object.update_container_info();});
+                 },
+                 onMouseMove: function(object, coords) { },
+                 onStartDrag: function(object, coords) { return true; }, //this image will not be dragged
+                 onDrag: function(object, coords) { }
+            });
+
+      });
+  </script>
   <div class="left-pane">
-    <div class="image">
-      <img src="{{task.content['imageurl']}}" />
-    </div>
+    <div id="viewer" class="viewer"></div>
   </div>
 
   <div class="right-pane">
