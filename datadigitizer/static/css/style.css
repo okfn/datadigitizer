@@ -1,5 +1,6 @@
 @import url(openspending.css);
 
+/** general **/
 header #site-title {
   margin-left: 0;
 }
@@ -17,13 +18,34 @@ div.left-pane {
   float: left;
 }
 
-div.image img {
-  width: 100%;
-}
-
 div.right-pane {
   width: 45%;
   margin-left: 50%;
+}
+
+/** front page **/
+
+div.do-task {
+}
+
+.do-task h2 {
+  text-align: center;
+  padding-top: 200px;
+  font-size: 250%;
+}
+
+.frontpage p {
+  font-size: 120%;
+}
+
+.frontpage .right-pane img {
+  width: 80%;
+}
+
+/** transcribe **/
+
+div.image img {
+  width: 100%;
 }
 
 div.meta {

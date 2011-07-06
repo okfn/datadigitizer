@@ -2,10 +2,24 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-  <div>
-    <h2>Welcome!</h2>
-    <h3>
-      <a href="{{url_for('transcribe', task_id=task_id)}}">Do a task</a>
-    </h3>
+  <div class="frontpage">
+    <div class="left-pane">
+      <div class="do-task">
+        <h2>
+           <a href="{{url_for('transcribe', task_id=task_id)}}">Dive straight
+             in and start a transcription task &raquo;</a>
+       </h2>
+      </div>
+    </div>
+    <div class="right-pane">
+      <h2>
+        What is This About?
+      </h2>
+      <p>We need to convert scanned tables and documents (like the one below) to machine-readable data that we
+      can use and analyze.</p>
+      <p>All that's required is a few minutes of your time to help copy into an
+      online spreadsheet the numbers you see in a table like the one below.</p>
+      <img src="http://www.guoxu.org/metametrik/MRW1992_2.png" />
+    </div>
   </div>
 {% endblock %}
