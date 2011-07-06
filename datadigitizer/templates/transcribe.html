@@ -25,20 +25,24 @@
 
       });
   </script>
+
+  <div class="meta">
+    <form action="" method="post">
+      <input type="submit" value="Nothing to do (no table here)"
+        name="nothingtodo" />
+      <input type="submit" value="Give me another (skip this)"
+        name="skip" />
+      <input type="submit" value="I've finished this one" name="complete" />
+      <br />
+      <label for="title">Title</label><input type="text" name="title" value="{{task.content['title']}}" />
+    </form>
+  </div>
+
   <div class="left-pane">
     <div id="viewer" class="viewer"></div>
   </div>
 
   <div class="right-pane">
-    <div class="meta">
-      <form action="" method="post">
-        <label for="existsTable">Is there a table in this image?</label>
-        <input type="radio" name="existsTable" value="Yes"> Yes. <input type="radio" name="existsTable" value="No"> No.<br>
-        <label for="tableContinues">Does it continue on the next page?</label>
-        <input type="radio" name="tableContinues" value="Yes"> Yes. <input type="radio" name="tableContinues" value="No"> No.<br>
-      </form>
-    </div>
-
     <div class="gdoc">
       <iframe src="https://spreadsheets.google.com/spreadsheet/ccc?hl=en_GB&key={{task.content['spreadsheetid']}}#gid=0" style="width: 100%;" height="600"></iframe>
     </div>

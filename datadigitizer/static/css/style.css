@@ -14,12 +14,12 @@ header #site-title {
 }
 
 div.left-pane {
-  width: 45%;
+  width: 47%;
   float: left;
 }
 
 div.right-pane {
-  width: 45%;
+  width: 47%;
   margin-left: 50%;
 }
 
@@ -52,10 +52,15 @@ div.meta {
 }
 
 div.gdoc {
-  display: none;
 }
 
 div.meta {
-  line-height: 1.5;
+  margin-bottom: 20px;
+  margin-bottom: solid 2px #e2e2e2;
+  font-size: 140%;
+}
+
+.meta label {
+  margin-right: 5px;
 }
 

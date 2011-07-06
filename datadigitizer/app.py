@@ -1,5 +1,5 @@
 import os
-from flask import Flask, jsonify, render_template, json, request
+from flask import Flask, jsonify, render_template, json, request, redirect
 
 app = Flask(__name__)
 
@@ -28,12 +28,33 @@ def configure_app():
 def home():
     return render_template('index.html', task_id=1)
 
-@app.route('/transcribe/<task_id>')
+@app.route('/transcribe/<task_id>', methods=['GET', 'POST'])
 def transcribe(task_id):
-    key = 'tSZWuSYlRmdV7JpMI4E8oMQ'
-    db = OurDatabase(key)
-    task = db.get_task(task_id)[0]
-    return render_template('transcribe.html', task=task)
+    if request.method == 'POST':
+        myargs = dict(request.form)
+        newtaskid = '3'
+        if 'skip' in myargs:
+            return redirect('/transcribe/%s' % newtaskid)
+
+        key = 'tSZWuSYlRmdV7JpMI4E8oMQ'
+        db = OurDatabase(key)
+        task = db.get_task(task_id)[0]
+        if 'nothingtodo' in myargs:
+            task.content['status'] = 'nothingtodo'
+            task.Push()
+        elif 'complete' in myargs:
+            task.content['status'] = 'complete'
+            task.Push()
+        return redirect('/transcribe/%s' % newtaskid)
+    else:
+        key = 'tSZWuSYlRmdV7JpMI4E8oMQ'
+        db = OurDatabase(key)
+        task = db.get_task(task_id)[0]
+        return render_template('transcribe.html', task=task)
+
+
+class Task(object):
+    pass
 
 
 class OurDatabase(object):
