@@ -17,3 +17,15 @@ Now you can run the app::
 
 Visit: http://localhost:5000/
 
+Technical
+=========
+
+We use google docs as backend database. This makes it incredibly easy to add
+and edit tasks as you can just edit them in google spreadsheet.
+
+For develepers documentation on the API and python code for this can be found here:
+
+  * Source file (with docs): http://code.google.com/p/gdata-python-client/source/browse/src/gdata/spreadsheet/text_db.py
+  * Using Google Spreadsheets as a Database in the Cloud: http://www.youtube.com/watch?v=rWCLROPKug0
+
+
